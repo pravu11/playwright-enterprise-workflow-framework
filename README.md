@@ -2,9 +2,9 @@
 
 ## Overview
 
-This repository contains a scalable UI automation framework built using Playwright and TypeScript for validating complex enterprise workflows.
+This repository contains a scalable UI automation framework built using Playwright and TypeScript for validating enterprise workflows through reusable page objects, workflow abstractions, and configuration-driven execution.
 
-The framework was designed with a layered architecture that separates test scenarios, business workflows, and page interactions to improve maintainability, reusability, and scalability.
+The framework follows a layered architecture that separates test scenarios, business workflows, and page interactions to improve maintainability, reusability, and scalability.
 
 The automation solution focuses on:
 
@@ -81,6 +81,33 @@ Responsible for:
 * Smoke testing
 * Feature validation
 * Regression coverage
+
+---
+
+## Authentication Strategy
+
+The framework uses Playwright's setup project pattern to create and reuse authenticated sessions.
+
+Authentication Flow:
+
+```text
+Auth Setup
+    ↓
+Generate Session State
+    ↓
+Reuse Session Across Tests
+```
+
+Benefits:
+
+* Faster test execution
+* Reduced repeated logins
+* Consistent authenticated test environment
+* Improved test stability
+
+Note:
+
+Session state files are generated during execution and are intentionally excluded from source control.
 
 ---
 
@@ -172,7 +199,7 @@ The framework currently includes automation coverage for:
 
 ### Smoke Testing
 
-* Critical business workflow validation
+* Critical workflow validation
 * Application health checks
 
 ---
@@ -244,4 +271,6 @@ This framework was built with the following goals:
 
 ## Learning & Development
 
-This repository represents an ongoing automation initiative focused on improving workflow validation, framework design, and test automation practices using Playwright and TypeScript.
+This repository represents a self-driven automation initiative focused on framework design, workflow automation, authentication management, and scalable test architecture using Playwright and TypeScript.
+
+The framework continues to evolve through ongoing improvements in automation design, reusability, and workflow validation practices.
