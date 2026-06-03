@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { SyncPage } from '../../pages/SyncPage';
+import { SyncPage } from '../../pages/DataSyncPage';
 
 export class OrderSyncFlow {
 
