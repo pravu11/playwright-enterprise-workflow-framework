@@ -1,143 +1,200 @@
-# Enterprise Workflow Automation Framework
+# Playwright Enterprise Workflow Automation Framework
 
-## Project Overview
+## Overview
 
-This project is an end-to-end automation framework developed using Playwright and TypeScript for validating complex enterprise business workflows related to order processing, synchronization, execution management, and dynamic operational flows.
+This repository contains a scalable UI automation framework built using Playwright and TypeScript for validating complex enterprise workflows.
 
-The framework automates highly dynamic workflows involving:
-- Application order management
-- Material quantity handling
-- Duplicate panel creation
-- Trial execution set management
-- Validation error correction
-- Order synchronization workflows
-- Dynamic runtime validations
+The framework was designed with a layered architecture that separates test scenarios, business workflows, and page interactions to improve maintainability, reusability, and scalability.
 
-The automation solution was designed to improve:
-- Regression coverage
-- Execution reliability
-- Workflow validation accuracy
-- Maintainability of automated tests
-- Scalability for changing business requirements
+The automation solution focuses on:
 
-The framework handles complex business scenarios involving:
-- Runtime-generated UI elements
-- Dynamic data-driven workflows
-- Conditional execution paths
-- Frequently changing customer requirements
-- Multi-step order processing flows
+* End-to-end workflow validation
+* Dynamic data handling
+* Business process automation
+* Configuration-driven execution
+* Reusable workflow components
+* Maintainable test design
 
 ---
 
-# Tech Stack
+## Technology Stack
 
-## Automation
-- Playwright
-- TypeScript
-- Node.js
+### Automation
 
-## Framework Design
-- Page Object Model (POM)
-- Modular Framework Architecture
-- Data-Driven Testing
-- Reusable Workflow Components
+* Playwright
+* TypeScript
+* Node.js
 
-## Tools
-- VS Code
-- Git
-- npm
+### Framework Design
 
----
+* Page Object Model (POM)
+* Workflow-Based Architecture
+* Modular Framework Design
+* Reusable Components
+* Configuration-Driven Execution
 
-# Framework Features
+### Tools
 
-- End-to-end workflow automation
-- Dynamic locator handling
-- Session reuse and authentication management
-- Reusable page object architecture
-- Configurable environment setup
-- Runtime validation handling
-- Dynamic test data support
-- Error handling and retry support
-- Parallel execution support
-- Headed and headless execution modes
+* VS Code
+* Git
+* GitHub
+* npm
 
 ---
 
-# Framework Architecture
+## Framework Architecture
 
-The framework follows a modular architecture with clear separation of concerns:
+The framework follows a layered architecture:
 
-- `pages/` handles UI interactions using the Page Object Model
-- `flows/` contains reusable business workflow implementations
-- `utils/` provides reusable utility methods and helpers
-- `constants/` stores static data and reusable constants
-- `tests/` contains test scenarios and execution suites
+```text
+Tests
+  ↓
+Flows
+  ↓
+Pages
+  ↓
+Playwright
+```
 
-This structure improves:
-- Reusability
-- Maintainability
-- Scalability
-- Readability of test workflows
+### Pages Layer
 
----
+Responsible for:
 
-# Automated Modules
+* UI interactions
+* Element locators
+* Reusable page actions
 
-## Application Order Management
-- Order processing validation
-- Order synchronization handling
-- Dynamic order status verification
+### Flows Layer
 
-## Material Details Handling
-- Dynamic material quantity updates
-- Variable material data handling
-- Runtime-generated material validations
+Responsible for:
 
-## Duplicate Panel Management
-- Duplicate panel creation
-- Dynamic popup handling
-- Panel selection workflows
+* Business workflow orchestration
+* Multi-page operations
+* Validation handling
+* Reusable process execution
 
-## Trial Execution Set Management
-- Trial panel creation
-- Execution set workflows
-- Dynamic panel assignments
+### Tests Layer
 
-## Validation Error Handling
-- Invalid field correction
-- Dynamic error identification
-- Runtime form validation handling
+Responsible for:
+
+* Scenario definitions
+* Smoke testing
+* Feature validation
+* Regression coverage
 
 ---
 
-# Project Structure
+## Key Features
+
+* End-to-end workflow automation
+* Page Object Model implementation
+* Reusable business flow components
+* Dynamic locator handling
+* Data-driven execution support
+* Configurable environment setup
+* Session reuse and authentication management
+* Screenshot capture on failures
+* HTML reporting
+* Parallel execution support
+* Headed and headless execution modes
+* Scalable framework structure
+
+---
+
+## Project Structure
+
+```text
+PLAYWRIGHT-ENTERPRISE-WORKFLOW-FRAMEWORK
+
+├── .github
+│   └── workflows
+│       └── playwright.yml
+
+├── constants
+│   └── appConstants.ts
+
+├── flows
+│   ├── manageOrder
+│   │   ├── batchDuplication.flow.ts
+│   │   ├── executionSet.flow.ts
+│   │   └── orderManagement.flow.ts
+│   │
+│   └── sync
+│       └── dataSynchronization.flow.ts
+
+├── pages
+│   ├── manageOrder
+│   │   ├── BatchDuplicationPage.ts
+│   │   ├── ExecutionSetPage.ts
+│   │   └── OrderManagementPage.ts
+│   │
+│   ├── LoginPage.ts
+│   └── DataSyncPage.ts
+
+├── tests
+│   ├── Features
+│   ├── Regression
+│   ├── Smoke
+│   └── setup
+
+├── utils
+│   └── testData.ts
+
+├── playwright.config.ts
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## Test Coverage
+
+The framework currently includes automation coverage for:
+
+### Workflow Management
+
+* Order lifecycle validation
+* Batch processing workflows
+* Execution set handling
+* Workflow progression validation
+
+### Data Synchronization
+
+* Synchronization workflow validation
+* Status verification
+* Data consistency checks
+
+### Regression Testing
+
+* End-to-end workflow validation
+* Cross-module workflow coverage
+
+### Smoke Testing
+
+* Critical business workflow validation
+* Application health checks
+
+---
+
+## Reporting
+
+The framework supports:
+
+* HTML Reports
+* Screenshot Capture on Failure
+* Video Recording on Failure
+* Playwright Trace Viewer
+
+Generate reports:
 
 ```bash
-AWETAAUTOMATION/
-│
-├── .github/                 # CI/CD workflows and GitHub configurations
-├── constants/               # Application constants and static data
-├── flows/                   # Reusable business workflow implementations
-├── node_modules/
-├── pages/                   # Page Object Model classes
-├── playwright-report/       # Generated Playwright HTML reports
-├── test-results/            # Screenshots, videos, traces, execution artifacts
-├── tests/                   # Test specifications and test suites
-├── utils/                   # Reusable helper methods and utilities
-│
-├── .gitignore
-├── .hintrc
-├── package-lock.json
-├── package.json
-├── playwright.config.ts     # Playwright configuration
-├── storageState.json        # Saved authentication/session state
-│
-└── README.md
+npx playwright show-report
+```
 
 ---
 
-# Running Tests
+## Running Tests
 
 Run all tests:
 
@@ -151,30 +208,40 @@ Run tests in headed mode:
 npx playwright test --headed
 ```
 
-Run a specific test file:
+Run smoke suite:
 
 ```bash
-npx playwright test tests/smoke/fullFlow.spec.ts
+npx playwright test tests/Smoke
 ```
 
-Run tests in a specific browser:
+Run regression suite:
 
 ```bash
-npx playwright test --project=chromium
+npx playwright test tests/Regression
+```
+
+Run feature tests:
+
+```bash
+npx playwright test tests/Features
 ```
 
 ---
 
-# Reporting
+## Design Goals
 
-The framework supports:
-- HTML Reports
-- Playwright Trace Viewer
-- Screenshot capture on failure
-- Video recording for failed executions
+This framework was built with the following goals:
 
-Open HTML report:
+* Maintainability
+* Reusability
+* Scalability
+* Readability
+* Workflow abstraction
+* Reduced code duplication
+* Easier long-term automation maintenance
 
-```bash
-npx playwright show-report
-```
+---
+
+## Learning & Development
+
+This repository represents an ongoing automation initiative focused on improving workflow validation, framework design, and test automation practices using Playwright and TypeScript.
