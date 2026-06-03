@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
 import { TrialSetPage }
-  from '../../pages/manageOrder/ExecutionSet';
+  from '../../pages/manageOrder/ExecutionSetPage';
 
 export class TrialSetFlow {
 
