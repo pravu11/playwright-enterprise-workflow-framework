@@ -45,7 +45,7 @@ loginPage: {
       '[data-target="#tab2"]',
 
     toastMessage:
-      '.VegamToastNotificationWrapper'
+      '.ToastNotificationWrapper'
   },
 
  manageOrder: {

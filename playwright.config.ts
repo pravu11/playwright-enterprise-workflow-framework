@@ -36,9 +36,6 @@ projects: [
   {
     name: 'tests',
     dependencies: ['setup'],
-    use: {
-      storageState: 'storageState.json'
-    }
   }
 ]
 });
